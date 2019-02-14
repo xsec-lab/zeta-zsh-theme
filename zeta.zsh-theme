@@ -11,6 +11,8 @@ local yellow=$fg[yellow]
 local magenta=$fg[magenta]
 local cyan=$fg[cyan]
 local white=$fg[white]
+local orange=$fg[orange]
+local hotpink="%F{161}"
 
 local black_bold=$fg_bold[black]
 local red_bold=$fg_bold[red]
@@ -20,10 +22,12 @@ local yellow_bold=$fg_bold[yellow]
 local magenta_bold=$fg_bold[magenta]
 local cyan_bold=$fg_bold[cyan]
 local white_bold=$fg_bold[white]
+local orange_bold=$fg_bold[orange]
+local hotpink_bold=$fg_bold[red]
 
 local highlight_bg=$bg[red]
 
-local zeta='ζ'
+local zeta='$'
 
 # Machine name.
 function get_box_name {
@@ -98,10 +102,9 @@ function get_space {
 # > command
 function print_prompt_head {
     local left_prompt="\
-%{$blue%}# \
-%{$green_bold%}$(get_usr_name)\
-%{$blue%}@\
-%{$cyan_bold%}$(get_box_name): \
+%{$red_bold%}$(get_usr_name)\
+%{$yellow_bold%}@\
+%{$green_bold%}%m$: \
 %{$yellow_bold%}$(get_current_dir)%{$reset_color%}\
 $(get_git_prompt) "
     local right_prompt="%{$blue%}($(get_time_stamp))%{$reset_color%} "
