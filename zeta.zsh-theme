@@ -23,7 +23,6 @@ local magenta_bold=$fg_bold[magenta]
 local cyan_bold=$fg_bold[cyan]
 local white_bold=$fg_bold[white]
 local orange_bold=$fg_bold[orange]
-local hotpink_bold=$fg_bold[red]
 
 local highlight_bg=$bg[red]
 
@@ -105,7 +104,7 @@ function print_prompt_head {
 %{$red_bold%}$(get_usr_name)\
 %{$yellow_bold%}@\
 %{$green_bold%}%m$: \
-%{$yellow_bold%}$(get_current_dir)%{$reset_color%}\
+%{$magenta_bold%}$(get_current_dir)%{$reset_color%}\
 $(get_git_prompt) "
     local right_prompt="%{$blue%}($(get_time_stamp))%{$reset_color%} "
     print -rP "$left_prompt$(get_space $left_prompt $right_prompt)$right_prompt"
@@ -113,9 +112,9 @@ $(get_git_prompt) "
 
 function get_prompt_indicator {
     if [[ $? -eq 0 ]]; then
-        echo "%{$magenta_bold%}$zeta %{$reset_color%}"
+        echo "%{$cyan_bold%}$zeta %{$reset_color%}"
     else
-        echo "%{$red_bold%}$zeta %{$reset_color%}"
+        echo "%{$cyan_bold%}$zeta %{$reset_color%}"
     fi
 }
 
